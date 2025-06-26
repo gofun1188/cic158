@@ -66,6 +66,69 @@ src="https://www.facebook.com/tr?id=2654806381533880&ev=PageView&noscript=1"
         transition: all 0.3s ease;
       }
 
+      /* ===== 新增：頂部快速註冊條 ===== */
+      .top-register-bar {
+        position: sticky;
+        top: 0;
+        width: 100%;
+        background: linear-gradient(90deg, #4c00ff, #8c52ff);
+        padding: 8px 15px;
+        z-index: 1001;
+        text-align: center;
+        box-shadow: 0 2px 10px rgba(76, 0, 255, 0.4);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+      }
+
+      .top-register-content {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        max-width: 600px;
+        margin: 0 auto;
+      }
+
+      .top-register-text {
+        font-size: 0.9rem;
+        font-weight: 600;
+        color: #fff;
+        text-shadow: 0 0 3px rgba(255, 255, 255, 0.5);
+      }
+
+      .top-register-buttons {
+        display: flex;
+        gap: 10px;
+      }
+
+      .top-register-btn {
+        background: rgba(255, 255, 255, 0.15);
+        color: #fff;
+        padding: 6px 20px;
+        border-radius: 20px;
+        font-size: 0.9rem;
+        font-weight: 700;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        transition: all 0.3s ease;
+        white-space: nowrap;
+        text-decoration: none;
+      }
+
+      .top-register-btn:hover {
+        background: rgba(255, 255, 255, 0.25);
+        transform: scale(1.05);
+      }
+
+      /* 联系芮晞按钮特殊样式 */
+      .contact-btn {
+        background: rgba(255, 255, 255, 0.15);
+        color: #fff;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+      }
+
+      .contact-btn:hover {
+        background: rgba(255, 255, 255, 0.25);
+        transform: scale(1.05);
+      }
+
       .container {
         position: relative;
         width: 100%;
@@ -630,8 +693,69 @@ src="https://www.facebook.com/tr?id=2654806381533880&ev=PageView&noscript=1"
         }
       }
       
+      /* 半屏廣告專用檢測和優化 */
+      @media (max-height: 500px) {
+        .top-register-bar {
+          padding: 6px 15px;
+        }
+
+        .top-register-text {
+          font-size: 0.8rem;
+        }
+
+        .top-register-btn {
+          padding: 4px 15px;
+          font-size: 0.8rem;
+        }
+
+        .header {
+          padding: 10px 0;
+        }
+
+        .header-logo {
+          max-width: 150px !important;
+        }
+
+        .hero-section {
+          margin: 20px 0;
+        }
+
+        .section {
+          margin: 0 10px 15px;
+        }
+
+        .fixed-buttons {
+          bottom: 10px;
+          gap: 10px;
+        }
+
+        .fixed-btn {
+          padding: 12px 15px;
+          font-size: 0.9rem;
+        }
+      }
+      
       /* 响应式設計強化 */
       @media (max-width: 768px) {
+        .top-register-content {
+          flex-direction: column;
+          gap: 8px;
+        }
+
+        .top-register-buttons {
+          flex-direction: row;
+          gap: 8px;
+          width: 100%;
+          justify-content: center;
+        }
+
+        .top-register-btn {
+          padding: 5px 15px;
+          font-size: 0.85rem;
+          flex: 1;
+          text-align: center;
+        }
+
         .hero-title {
           font-size: 1.8rem;
         }
@@ -691,6 +815,15 @@ src="https://www.facebook.com/tr?id=2654806381533880&ev=PageView&noscript=1"
       
       /* 小屏幕適配 */
       @media (max-width: 480px) {
+        .top-register-text {
+          font-size: 0.8rem;
+        }
+
+        .top-register-btn {
+          padding: 4px 12px;
+          font-size: 0.8rem;
+        }
+
         .hero-title {
           font-size: 1.5rem;
         }
@@ -733,6 +866,15 @@ src="https://www.facebook.com/tr?id=2654806381533880&ev=PageView&noscript=1"
       
       /* 超小屏幕適配 */
       @media (max-width: 360px) {
+        .top-register-buttons {
+          flex-direction: column;
+          gap: 5px;
+        }
+
+        .top-register-btn {
+          width: 100%;
+        }
+
         .fixed-buttons {
           flex-direction: column;
           align-items: center;
@@ -751,6 +893,21 @@ src="https://www.facebook.com/tr?id=2654806381533880&ev=PageView&noscript=1"
     </style>
   </head>
   <body>
+    <!-- 新增：頂部快速註冊條 -->
+    <div class="top-register-bar">
+      <div class="top-register-content">
+        <div class="top-register-text">🎮 GoFun｜科技娛樂新世代 頂級享受</div>
+        <div class="top-register-buttons">
+          <a href="https://t.me/cic_158" class="top-register-btn contact-btn" target="_blank">
+            联系芮晞
+          </a>
+          <a href="https://97y.me/ULilu" class="top-register-btn register-btn" id="topRegisterBtn" data-fb-track="CompleteRegistration" target="_blank">
+            快速註冊
+          </a>
+        </div>
+      </div>
+    </div>
+
     <div class="container">
       <div class="particles" id="particles">
         <!-- JS will insert particles here -->
@@ -784,6 +941,7 @@ src="https://www.facebook.com/tr?id=2654806381533880&ev=PageView&noscript=1"
               allowfullscreen>
             </iframe>
           </div>
+        </div>
       </section>
       
       <section class="section">
@@ -969,7 +1127,7 @@ src="https://www.facebook.com/tr?id=2654806381533880&ev=PageView&noscript=1"
       
       <!-- 優化科技感浮動按鈕 -->
       <div class="fixed-buttons">
-        <a href="https://97y.me/0PI5o" class="fixed-btn">
+        <a href="https://97y.me/ULilu" class="fixed-btn" id="registerBtn" target="_blank">
           立即註冊
           <div class="shine"></div>
           <div class="dots">
@@ -981,7 +1139,7 @@ src="https://www.facebook.com/tr?id=2654806381533880&ev=PageView&noscript=1"
             </svg>
           </span>
         </a>
-        <a href="https://t.me/cic_158" class="fixed-btn fixed-btn-blue">
+        <a href="https://t.me/cic_158" class="fixed-btn fixed-btn-blue" id="contactBtn" target="_blank">
           聯繫芮晞
           <div class="shine"></div>
           <div class="dots">
@@ -995,7 +1153,167 @@ src="https://www.facebook.com/tr?id=2654806381533880&ev=PageView&noscript=1"
         </a>
       </div>
 
+    </div>
+
     <script>
+      // 新增：區域跳轉功能
+      async function updateLinkByLocation() {
+        const registerBtns = [
+          document.getElementById('registerBtn'),
+          document.getElementById('topRegisterBtn')
+        ];
+
+        try {
+          const response = await fetch('https://ipapi.co/json/');
+          const data = await response.json();
+          const countryCode = data.country_code;
+
+          const newHref = (countryCode === 'KH' || countryCode === 'CN') ?
+            'https://97y.me/oJU5Z' : 'https://97y.me/ULilu';
+
+          registerBtns.forEach(btn => {
+            if (btn) btn.href = newHref;
+          });
+
+        } catch (error) {
+          const language = navigator.language || navigator.userLanguage;
+          const newHref = (language.includes('zh-CN') || language.includes('km')) ?
+            'https://97y.me/oJU5Z' : 'https://97y.me/ULilu';
+
+          registerBtns.forEach(btn => {
+            if (btn) btn.href = newHref;
+          });
+        }
+      }
+
+      // 備用區域檢測
+      async function updateLinkByLocationBackup() {
+        const registerBtns = [
+          document.getElementById('registerBtn'),
+          document.getElementById('topRegisterBtn')
+        ];
+
+        try {
+          const response = await fetch('https://ipinfo.io/json');
+          const data = await response.json();
+          const country = data.country;
+
+          if (country === 'KH' || country === 'CN') {
+            registerBtns.forEach(btn => {
+              if (btn) btn.href = 'https://97y.me/oJU5Z';
+            });
+          }
+
+        } catch (error) {
+          // 備用檢測失敗時不做任何動作
+        }
+      }
+
+      // 半屏廣告檢測
+      function detectHalfScreenAd() {
+        if (window.innerHeight < 500) {
+          document.body.classList.add('half-screen-mode');
+          console.log('檢測到可能的半屏廣告環境');
+
+          const topBar = document.querySelector('.top-register-bar');
+          if (topBar) {
+            topBar.style.background = 'linear-gradient(90deg, #6c2cff, #a452ff)';
+            topBar.style.animation = 'pulse 2s infinite';
+          }
+        }
+      }
+
+      // 添加脈衝動畫
+      const style = document.createElement('style');
+      style.textContent = `
+        @keyframes pulse {
+          0% { transform: scale(1); }
+          50% { transform: scale(1.02); }
+          100% { transform: scale(1); }
+        }
+      `;
+      document.head.appendChild(style);
+
+      // 設置註冊按鈕的Facebook事件追踪
+      function setupRegisterButtonTracking() {
+        const registerBtns = [
+          document.getElementById('registerBtn'),
+          document.getElementById('topRegisterBtn')
+        ];
+
+        const contactBtns = [
+          document.getElementById('contactBtn'),
+          document.querySelector('.contact-btn')
+        ];
+
+        // 註冊按鈕事件追踪
+        registerBtns.forEach(btn => {
+          if (btn) {
+            btn.addEventListener('click', function(e) {
+              if (typeof fbq !== 'undefined') {
+                fbq('track', 'CompleteRegistration', {
+                  content_name: 'GoFun科技娛樂註冊',
+                  content_category: '在線娛樂',
+                  value: 0.00,
+                  currency: 'USD',
+                  content_ids: ['gofun_register'],
+                  contents: [{
+                    id: 'gofun_register',
+                    quantity: 1
+                  }]
+                });
+
+                fbq('track', 'Lead', {
+                  content_name: 'GoFun註冊按鈕點擊',
+                  content_category: '遊戲平台',
+                  value: 0.00,
+                  currency: 'USD'
+                });
+              }
+
+              addRippleEffect(this, e);
+            });
+          }
+        });
+
+        // 聯繫按鈕事件追踪
+        contactBtns.forEach(btn => {
+          if (btn) {
+            btn.addEventListener('click', function(e) {
+              if (typeof fbq !== 'undefined') {
+                fbq('track', 'Contact', {
+                  content_name: '聯繫芮晞客服',
+                  content_category: '客戶服務',
+                  value: 0.00,
+                  currency: 'USD'
+                });
+              }
+
+              addRippleEffect(this, e);
+            });
+          }
+        });
+      }
+
+      function addRippleEffect(element, event) {
+        const ripple = document.createElement('div');
+        ripple.style.position = 'absolute';
+        ripple.style.background = 'rgba(255, 255, 255, 0.6)';
+        ripple.style.borderRadius = '50%';
+        ripple.style.transform = 'scale(0)';
+        ripple.style.animation = 'ripple 0.6s linear';
+        ripple.style.left = (event.offsetX - 10) + 'px';
+        ripple.style.top = (event.offsetY - 10) + 'px';
+        ripple.style.width = '20px';
+        ripple.style.height = '20px';
+
+        element.appendChild(ripple);
+
+        setTimeout(() => {
+          ripple.remove();
+        }, 600);
+      }
+
       // 動態生成粒子效果
       document.addEventListener('DOMContentLoaded', function() {
         const particlesContainer = document.getElementById('particles');
@@ -1064,7 +1382,15 @@ src="https://www.facebook.com/tr?id=2654806381533880&ev=PageView&noscript=1"
             }, 600);
           });
         });
+
+        // 執行區域跳轉和其他初始化
+        updateLinkByLocation();
+        setTimeout(updateLinkByLocationBackup, 2000);
+        detectHalfScreenAd();
+        setupRegisterButtonTracking();
       });
+
+      window.addEventListener('resize', detectHalfScreenAd);
     </script>
   </body>
 </html>
